@@ -17,10 +17,8 @@
   }
 
   document.addEventListener('mousemove', (e) => {
-    const dx = (e.clientX / window.innerWidth - 0.5);
-    const dy = (e.clientY / window.innerHeight - 0.5);
-    targetX = dx * 5;
-    targetY = dy * 5;
+    targetX = (e.clientX / window.innerWidth - 0.5) * 5;
+    targetY = (e.clientY / window.innerHeight - 0.5) * 5;
   });
 
   function initCardAnimations() {
