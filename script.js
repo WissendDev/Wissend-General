@@ -57,7 +57,9 @@
         e.stopPropagation();
         this.classList.toggle('active');
       });
-      document.addEventListener('click', () => qr.classList.remove('active'));
+      document.addEventListener('click', () => {
+        qr.classList.remove('active');
+      });
     }
   }
 
