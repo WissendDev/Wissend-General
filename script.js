@@ -39,34 +39,18 @@
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
     };
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
-    }
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
     const saved = localStorage.getItem('theme') || 
                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     setTheme(saved);
-  }
-
-  function initQrToggle() {
-    const qr = document.getElementById('qrToggle');
-    if (qr) {
-      qr.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-      });
-      document.addEventListener('click', () => {
-        qr.classList.remove('active');
-      });
-    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     animate();
     initCardAnimations();
     initThemeToggle();
-    initQrToggle();
   });
 })();
