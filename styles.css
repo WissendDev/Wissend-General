@@ -10,9 +10,6 @@
 }
 
 input, textarea {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }
 
@@ -67,10 +64,7 @@ body {
 
 .grid-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
   opacity: 0.3;
   background-image: 
@@ -81,10 +75,8 @@ body {
 
 .theme-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
+  top: 20px; right: 20px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   border: 1px solid var(--border-subtle);
   background: var(--bg-card);
@@ -95,23 +87,10 @@ body {
   justify-content: center;
 }
 
-.theme-icon {
-  position: absolute;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-.moon-icon {
-  opacity: 0;
-}
-
-[data-theme="dark"] .sun-icon {
-  opacity: 0;
-}
-
-[data-theme="dark"] .moon-icon {
-  opacity: 1;
-}
+.theme-icon { position: absolute; font-size: 20px; transition: 0.3s; color: var(--text-main); }
+.moon-icon { opacity: 0; }
+[data-theme="dark"] .sun-icon { opacity: 0; }
+[data-theme="dark"] .moon-icon { opacity: 1; }
 
 main {
   display: grid;
@@ -126,11 +105,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.hero-subtitle {
-  color: var(--text-muted);
-  margin-bottom: 40px;
-  max-width: 450px;
-}
+.hero-subtitle { color: var(--text-muted); margin-bottom: 40px; max-width: 450px; }
 
 .btn-primary {
   border-radius: 50px;
@@ -143,30 +118,11 @@ h1 {
   transition: 0.3s;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 60px;
-}
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
+.service-item { border-left: 1px solid var(--border-subtle); padding-left: 15px; }
 
-.service-item {
-  border-left: 1px solid var(--border-subtle);
-  padding-left: 15px;
-}
-
-.service-item i {
-  margin-bottom: 10px;
-  opacity: 0.7;
-}
-
-.side-panel {
-  display: grid;
-  gap: 20px;
-}
-
+.side-panel { display: grid; gap: 20px; }
 .quality-square {
-  position: relative;
   background: var(--bg-main);
   border-radius: 24px;
   padding: 24px;
@@ -175,68 +131,39 @@ h1 {
   transform: translateY(20px);
   transition: 0.5s;
 }
+.quality-square.visible { opacity: 1; transform: translateY(0); }
 
-.quality-square.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.qr-wrapper {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 25px;
-  height: 25px;
+/* ФИКСИРОВАННЫЙ QR В УГЛУ */
+.fixed-qr-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 4px;
   cursor: pointer;
-  z-index: 100;
-  opacity: 0.1;
-  background: white;
-  padding: 2px;
-  border-radius: 4px;
+  z-index: 1001;
+  opacity: 0.2;
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
 
-.qr-wrapper:hover {
-  opacity: 0.5;
-}
+.fixed-qr-container:hover { opacity: 0.6; }
 
-.qr-wrapper.active {
-  width: 180px;
-  height: 180px;
-  bottom: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
+.fixed-qr-container.active {
+  width: 160px;
+  height: 160px;
   opacity: 1;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.qr-image {
+.qr-static-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.quality-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 10px;
-}
-
-.quality-title {
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.quality-content {
-  font-size: 15px;
-  color: var(--text-muted);
 }
 
 footer {
@@ -248,21 +175,12 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  main {
-    grid-template-columns: 1fr;
-  }
-  .main-container {
-    padding: 30px;
-    border-radius: 30px;
-  }
+  main { grid-template-columns: 1fr; }
+  .main-container { padding: 30px; border-radius: 30px; }
 }
 
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  .main-container {
-    margin: 10px;
-    padding: 30px 20px;
-  }
+  .services-grid { grid-template-columns: 1fr; }
+  .main-container { margin: 10px; padding: 30px 20px; border-radius: 20px; }
+  .fixed-qr-container { bottom: 15px; right: 15px; }
 }
